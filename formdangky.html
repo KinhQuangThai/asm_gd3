@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formdangky.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="boxcenter">
+        <div class="row mb header">
+            <h1> NIKE STORE</h1>
+        </div>
+
+        <div class="row mb menu">
+            <ul>
+                <li><a href="index.html">NIKE HOME</a></li>
+                <li><a href="123.html">GIỎ HÀNG</a></li>
+                <li><a href="#">LIÊN HỆ</a></li>
+                <li><a href="formdangky.html">Đăng Ký</a></li>
+                <li><a href="#">HỎI ĐÁP</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <form name="frm">
+                <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+                <div class="ground-gr">
+                    <label>So Dien Thoai</label> <br>
+                    <input name="masv" minlength="11" maxlength="11" required ng-model="masv" class="ctrol-gr"> <br>
+                    <span ng-if="frm.masv.$invalid"><i>*So dien thoai khong duoc bo trong va phai du 13 so</i></span>
+                </div>
+                <div class="ground-gr">
+                    <label>Họ và tên</label> <br>
+                    <input name="tensv" minlength="2" maxlength="10" required ng-model="tensv" class="ctrol-gr"> <br>
+                    <span ng-if="frm.tensv.$invalid"><i>*Tên không được bỏ trống</i></span>
+                </div>
+                <div class="ground-gr">
+                    <label>Email</label> <br>
+                    <input name="email" type="email" required ng-model="email" class="ctrol-gr"> <br>
+                    <span ng-if="frm.email.$invalid"><i>*Email không được bỏ trống</i> </span>
+                </div>
+                <div class="ground-grr ">
+                    <label>Giới tính</label> <br>
+                    <div class="ctrol-gr-gt">
+                        <label><input type="radio" name="gioitinh" value="1" ng-model="gioitinh">Nam</label>
+                        <label><input type="radio" name="gioitinh" value="0" ng-model="gioitinh">Nữ</label> <br>
+                    </div>
+                    <span ng-if="!gioitinh"><i>*Giới tính không được bỏ trống</i></span>
+                </div>
+                <div class="ground-grr">
+                    <label>Mat hang yeu thich</label> <br>
+                    <div class="ctrol-gr-st">
+                        <label><input type="checkbox" ng-model="ds" value="0" name="sach">Giay Bong Da</label>
+                        <label><input type="checkbox" ng-model="dl" value="1">Giay Cao Co</label>
+                        <label><input type="checkbox" ng-model="at" value="2">Giay Thap Co</label>
+                        <label><input type="checkbox" ng-model="an" value="3">Giay Chay Bo</label>
+                        <label><input type="checkbox" ng-model="khac" value="4">Khác</label>
+                    </div>
+                    <span ng-if="!ds && !dl && !at && !an && !khac"><i>*Chọn một sở thích</i></span>
+                </div>
+                <div class="ground-gr">
+                    <label>Quốc tịch</label> <br>
+                    <select name="t" ng-model="quoctich" class="ctrol-gr" style="font-size: 17px;">
+                        <option value="0">Chọn quốc tịch</option>
+                        <option value="1">Việt Nam</option>
+                        <option value="2">USA</option>
+                        <option value="3">China</option>
+                        <option value="4">japan</option>
+                        <option value="5">Kroean</option>
+                    </select> <br>
+                    <span ng-if="!quoctich || quoctich==0"><i>*Hãy chọn quốc tịch</i></span>
+                </div>
+                <div class="ground-gr">
+                    <label>Ghi chú</label> <br>
+                    <textarea name="ghichu" ng-model="ghichu" minlength="5" maxlength="10" cols="67" rows="8"></textarea>
+                    <br>
+                    <span ng-if="!ghichu"><i>*Ghi chú không bỏ trống</i></span>
+                </div>
+    
+                <div class="ground-gr-submit">
+                    <button type="submit" class="btn">Đăng kí</button>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    
+</body>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", xuLy);
+    function xuLy($scope) {
+
+    }
+</script>
+</html>
